@@ -4,7 +4,7 @@ class Courses extends React.Component{
     render(){
         return (
             <div className="courses">
-                <h2>{this.props.label}</h2>
+                <h1>{this.props.label}</h1>
                    <p>{this.props.info}</p>
             </div>
         )

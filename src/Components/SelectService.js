@@ -26,7 +26,7 @@ class SelectService extends React.Component{
         return (
             <div>
                   <form className="service-selector" onSubmit={this.goToService}>
-                    <h2>Please enter a course</h2>
+                    <h3>Please enter a course platform</h3>
                     <input
                        type="text"
                        placeholder="Course Name"

@@ -9,7 +9,14 @@ class OrderList extends React.Component{
         });
     }
 
-  
+    renderOrderList=(key)=>{
+        const course = this.props.courses[key];
+        const count= this.props.order[key];
+        return <li>
+        {count} {course.name}  {this.formatPrice(count * course.price)} 
+        </li>
+    }
+
     render(){
         const orderIds= Object.keys(this.props.order);
         const total = orderIds.reduce((prevTotal, key)=> {
@@ -17,13 +24,13 @@ class OrderList extends React.Component{
             const count= this.props.order[key];
             return prevTotal + (count * course.price);
         }, 0);
-
+         
         return (
             <div className="split orderList">
-                <h2>Your order list</h2>
+                <h1>Your order list</h1>
                 <ul>
-        {orderIds.map(key => <li>{key} <button>Remove</button></li>  )}
-                    </ul>        
+                  {orderIds.map(this.renderOrderList)}
+                </ul>        
                  <b>Total: {this.formatPrice(total)}</b>
             </div>
         );
